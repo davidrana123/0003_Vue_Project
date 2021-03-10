@@ -1,41 +1,38 @@
 <template>
   <nav>
-      <ul>
-          <li v-for="location in location" :key="location.id"><router-link to="/">Home</router-link></li>
-          <!-- <li><router-link to="/about">About</router-link></li>
-          <li><router-link to="contact">Contact</router-link></li> -->
-      </ul>
+    <button class="button" @click="openModel">Add Expence</button>
   </nav>
 </template>
+
 <script>
-import store from "@/store.js"
 export default {
-    name: 'Navbar',
-    data(){
-        return{
-            location: store.location
-        };
-    }
+  name: "Navbar",
+  methods: {
+    openModel() {
+      this.$emit("model-show");
+    },
+  },
 };
 </script>
 
-<style>
+<style scoped>
 nav {
-    width: 100%;
-    height: 65px;
-    padding: 0 100px;
-    background-color: #fff;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-nav ul {
-    height: 65px;
-    display: flex;
-    align-items: center;
-    list-style: none;
+.button {
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #42b983;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  outline: none;
 }
- nav ul li a{
-     text-decoration: none;
-     padding: 0 15px;
-     color: #42b983;
- }
-
 </style>
